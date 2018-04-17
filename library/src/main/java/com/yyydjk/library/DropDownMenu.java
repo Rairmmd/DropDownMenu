@@ -52,7 +52,6 @@ public class DropDownMenu extends LinearLayout {
 
     private float menuHeighPercent = 0.5f;
 
-
     public DropDownMenu(Context context) {
         super(context, null);
     }
@@ -79,7 +78,7 @@ public class DropDownMenu extends LinearLayout {
         menuTextSize = a.getDimensionPixelSize(R.styleable.DropDownMenu_ddmenuTextSize, menuTextSize);
         menuSelectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuSelectedIcon, menuSelectedIcon);
         menuUnselectedIcon = a.getResourceId(R.styleable.DropDownMenu_ddmenuUnselectedIcon, menuUnselectedIcon);
-        menuHeighPercent = a.getFloat(R.styleable.DropDownMenu_ddmenuMenuHeightPercent,menuHeighPercent);
+        menuHeighPercent = a.getFloat(R.styleable.DropDownMenu_ddmenuMenuHeightPercent, menuHeighPercent);
         a.recycle();
 
         //初始化tabMenuView并添加到tabMenuView
@@ -131,12 +130,12 @@ public class DropDownMenu extends LinearLayout {
         });
         containerView.addView(maskView, 1);
         maskView.setVisibility(GONE);
-        if (containerView.getChildAt(2) != null){
+        if (containerView.getChildAt(2) != null) {
             containerView.removeViewAt(2);
         }
 
         popupMenuViews = new FrameLayout(getContext());
-        popupMenuViews.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (DeviceUtils.getScreenSize(getContext()).y*menuHeighPercent)));
+        popupMenuViews.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (DeviceUtils.getScreenSize(getContext()).y * menuHeighPercent)));
         popupMenuViews.setVisibility(GONE);
         containerView.addView(popupMenuViews, 2);
 
@@ -152,7 +151,7 @@ public class DropDownMenu extends LinearLayout {
         tab.setSingleLine();
         tab.setEllipsize(TextUtils.TruncateAt.END);
         tab.setGravity(Gravity.CENTER);
-        tab.setTextSize(TypedValue.COMPLEX_UNIT_PX,menuTextSize);
+        tab.setTextSize(TypedValue.COMPLEX_UNIT_PX, menuTextSize);
         tab.setLayoutParams(new LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1.0f));
         tab.setTextColor(textUnselectedColor);
         tab.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(menuUnselectedIcon), null);
